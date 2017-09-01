@@ -29,6 +29,12 @@ app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 //===========================================
 // Routes
 //===========================================
+app.get('/favicon.ico', function(req, res){
+  res.sendStatus(200);
+  
+};
+
+
 app.get('/', function(req, res) {
   var docs = db.collection('projects').find().toArray(function (err, docs){
     if (err) {

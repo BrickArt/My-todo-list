@@ -4,10 +4,10 @@
 var express = require ('express');
 var http = require ('http');
 var bodyParser = require ('body-parser');
-var MongoClient = require ('mongodb').MongoClient;
+//var MongoClient = require ('mongodb').MongoClient;
 var ObjectID = require ('mongodb').ObjectID;
 var path = require('path');
-
+var mongoose = require('mongoose');
 var db = require ('./config/db');
 
 var app = express ();
@@ -24,7 +24,6 @@ app.disable('x-powered-by');
 app.set('view engine', 'jade');
 
 app.set('views', __dirname + '/views');
-app.use(express.static(path.join(__dirname, 'public')));
 
 //===========================================
 // Routes
@@ -174,16 +173,16 @@ app.put('/check/:id', function(req, res){
 
 
 app.get('/*', function(req, res){
-  res.redirect('/'); 
+  res.redirect('/');
 });
 //===========================================
 // Conecting
 //===========================================
-MongoClient.connect(db.url, (err, database) => {
+mongoose.connect(db.url, (err, database) => {
   if (err) return console.log(err)
   db = database;
   var port_number = server.listen(process.env.PORT || 3000);
-  
+
   app.listen(port_number);
 //   var server = app.listen(config.get('port'), function(){
 //     console.log('Listen on port ' + config.get('port'))

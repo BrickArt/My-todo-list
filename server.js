@@ -177,6 +177,11 @@ app.put('/check/:id', function(req, res){
     console.log(req.body);
   return res.sendStatus(200);
 });
+
+
+app.get('/*', function(req, res){
+  res.redirect('/'); 
+});
 //===========================================
 // Conecting
 //===========================================

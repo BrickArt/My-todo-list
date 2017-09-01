@@ -1,0 +1,22 @@
+{
+  "name": "one",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "Artem Rebryk",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "jade": "^1.11.0",
+    "jquery": "^3.2.1",
+    "mongodb": "^2.2.31",
+    "mongoose": "^4.11.8",
+    "nconf": "^0.8.4"
+  }
+}

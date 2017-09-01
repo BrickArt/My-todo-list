@@ -9,7 +9,6 @@ var ObjectID = require ('mongodb').ObjectID;
 var path = require('path');
 
 var db = require ('./config/db');
-var config = require('./config');
 
 var app = express ();
 

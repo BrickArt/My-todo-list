@@ -17,7 +17,6 @@ var app = express ();
 // Configurate
 //===========================================
 
-app.set('port', (process.env.PORT || 5000));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -184,7 +183,10 @@ app.put('/check/:id', function(req, res){
 MongoClient.connect(db.url, (err, database) => {
   if (err) return console.log(err)
   db = database;
-  var server = app.listen(config.get('port'), function(){
-    console.log('Listen on port ' + config.get('port'))
-  });
+  var port_number = server.listen(process.env.PORT || 3000);
+  
+  app.listen(port_number);
+//   var server = app.listen(config.get('port'), function(){
+//     console.log('Listen on port ' + config.get('port'))
+//   });
 });

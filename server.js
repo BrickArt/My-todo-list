@@ -30,10 +30,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 //===========================================
 // Routes
 //===========================================
-app.get('/favicon.ico', function(req, res){
-  res.sendStatus(200);
-  
-};
 
 
 app.get('/', function(req, res) {

@@ -171,6 +171,7 @@ img{
 		padding-top: 15px;
     		margin-top: 10px;
     		border-top: solid 1px #ecf0f1;
+		margin-left: 0;
 	}
 	.task>div>p{
 		margin-left: 40px;

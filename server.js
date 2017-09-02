@@ -178,7 +178,7 @@ app.get('/*', function(req, res){
 //===========================================
 // Conecting
 //===========================================
-mongoose.openUri(db.url, (err, database) => {
+mongoose.open(db.url, (err, database) => {
   if (err) return console.log(err)
   db = database;
   var port_number = server.listen(process.env.PORT || 3000);

@@ -152,7 +152,7 @@ img{
 	.taskButtons{
 		margin-left: -29px;
 	}
-	.task>p{
+	.task>div>p{
 		margin-right: 9px;
 	}
 	.projectButtons{
@@ -168,10 +168,11 @@ img{
 		margin-left: -10px;
 	}
 	.projectButtons{
-		margin-right: -20px;
-		float: right;
+		padding-top: 15px;
+    		margin-top: 10px;
+    		border-top: solid 1px #ecf0f1;
 	}
-	.task>p{
+	.task>div>p{
 		margin-left: 40px;
 		margin-top: 31px;
 	}

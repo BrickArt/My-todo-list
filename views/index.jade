@@ -44,7 +44,7 @@ body
                   .col-md-8                
                     p(id='p_' + task._id)=task.name
                   .col-md-3                 
-                    .taskButtons(id='taskBtn_'+task._id style="display: none")
+                    .taskButtons(id='taskBtn_'+task._id)
                       .btn-group
                         button.btn.btn-warning.priorityTask(value= task._id) Priority
                         button.btn.btn-warning.editTask(value= task._id) Edit

@@ -178,7 +178,7 @@ app.get('/*', function(req, res){
 //===========================================
 // Conecting
 //===========================================
-mongoose.connect(db.url, (err, database) => {
+mongoose.createConnection(db.url, (err, database) => {
   if (err) return console.log(err)
   db = database;
   var port_number = server.listen(process.env.PORT || 3000);
@@ -186,5 +186,5 @@ mongoose.connect(db.url, (err, database) => {
   app.listen(port_number);
 //   var server = app.listen(config.get('port'), function(){
 //     console.log('Listen on port ' + config.get('port'))
-//   });
+});
 });

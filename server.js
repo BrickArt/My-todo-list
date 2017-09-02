@@ -178,7 +178,7 @@ app.get('/*', function(req, res){
 //===========================================
 // Conecting
 //===========================================
-MongoClient.connect(process.env.MONGODB_URI);
+MongoClient.connect(process.env.MONGODB_URI){
 //                    , (err, database) => {
   //if (err) return console.log(err)
   //db = database;
@@ -188,4 +188,4 @@ MongoClient.connect(process.env.MONGODB_URI);
 //   var server = app.listen(config.get('port'), function(){
 //     console.log('Listen on port ' + config.get('port'))
 //});
-//});
+};

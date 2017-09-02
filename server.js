@@ -4,7 +4,7 @@
 var express = require ('express');
 var http = require ('http');
 var bodyParser = require ('body-parser');
-//var MongoClient = require ('mongodb').MongoClient;
+var MongoClient = require ('mongodb').MongoClient;
 var ObjectID = require ('mongodb').ObjectID;
 var path = require('path');
 var mongoose = require('mongoose');
@@ -178,7 +178,7 @@ app.get('/*', function(req, res){
 //===========================================
 // Conecting
 //===========================================
-mongoose.createConnection(db.url, (err, database) => {
+MongoClient.connect(db.url, (err, database) => {
   if (err) return console.log(err)
   db = database;
   var port_number = server.listen(process.env.PORT || 3000);

@@ -185,8 +185,8 @@ MongoClient.connect(process.env.MONGODB_URI, function(err, db){
      }
   var port_number = app.listen(process.env.PORT || 3000);
 
-  app.listen(port_number);
+ // app.listen(port_number);
 //   var server = app.listen(config.get('port'), function(){
 //     console.log('Listen on port ' + config.get('port'))
 //});
-};
+});

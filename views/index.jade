@@ -1,68 +1,69 @@
 doctype
-head
-  title= 'page'
-  meta(charset='utf-8')
-  link(rel="shortcut icon" href="/favicon.ico")
-  link(rel="stylesheet" href="/css/style.css")
-  link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous")
-  script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js')
-body
-  .container
-    h1.display-1= 'ToDo List'
-    hr
-    .projects#project
-      each doc in docs
-        .project(id= 'post_' + doc._id)
-          .row.projectHeader
-            .col-md-10
-              h2.display-4(id= 'h2_' + doc._id)= doc.name
-            .col-md-2
-              .projectButtons(id='project_btn_' + doc._id)
-                .btn-group
-                  button.btn-lg.btn.btn-light.edit(value= doc._id) Edit
-                  button.btn-lg.btn.btn-light.delete(value= doc._id) Del
-              .projectSave(style="display: none" id='project_save_' + doc._id)
-                button.btn-lg.btn-block.btn.btn-light.editSave(value= doc._id) Save
-          form.newTask(id= doc._id)
-            .row.addNewTask
+html
+  head
+    title= 'page'
+    meta(charset='utf-8')
+    link(rel="shortcut icon" href="/favicon.ico")
+    link(rel="stylesheet" href="/css/style.css")
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous")
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js')
+  body
+    .container
+      h1.display-1= 'ToDo List'
+      hr
+      .projects#project
+        each doc in docs
+          .project(id= 'post_' + doc._id)
+            .row.projectHeader
               .col-md-10
-                label(for='taskName') Add new task
-                input.form-control(name='name' type='text' placeholder='Task name' id='taskName_' + doc._id)
+                h2.display-4(id= 'h2_' + doc._id)= doc.name
               .col-md-2
-                button.newTaskBtn.btn-block.btn.btn-primary(id='addTask_' + doc._id value= doc._id) Add
-          .tasks
-            each task in tasks
-              - if (doc._id == task.projectID)
-                .row.task(id= task._id)
-                  .col-md-1
-                    label.custom-control.custom-checkbox.mb-2.mr-sm-2.mb-sm-0
-                      - if (task.status == 'checked')
-                        input.custom-control-input(checked type='checkbox' name='name' id='checkbox_' + task._id )
-                      -else
-                        input.custom-control-input( type='checkbox' name='name' id='checkbox_' + task._id )
-                      span.custom-control-indicator
-                  .col-md-8                
-                    p(id='p_' + task._id)=task.name
-                  .col-md-3                 
-                    .taskButtons(id='taskBtn_'+task._id)
-                      .btn-group
-                        button.btn.btn-warning.priorityTask(value= task._id) Priority
-                        button.btn.btn-warning.editTask(value= task._id) Edit
-                        button.btn.btn-warning.deleteTask(value= task._id) Del
-                    .taskSave(style="display: none" id='task_save_' + task._id)
-                        button.btn-block.btn.btn-warning.saveTask(value= task._id) Save
-              
-          
-    
-    hr.my-4
-    .AddForm
-      form#addProject
-        .row.form-group
-          .col-md-10
-            label(for='projectName') Project Name
-            input#projectName.form-control(name='name' type='text')
-          .col-md-2
-            button#addBtn.btn-block.btn.btn-primary Add
-          
-    
-  script(src='./javascripts/index.js')
+                .projectButtons(id='project_btn_' + doc._id)
+                  .btn-group
+                    button.btn-lg.btn.btn-light.edit(value= doc._id) Edit
+                    button.btn-lg.btn.btn-light.delete(value= doc._id) Del
+                .projectSave(style="display: none" id='project_save_' + doc._id)
+                  button.btn-lg.btn-block.btn.btn-light.editSave(value= doc._id) Save
+            form.newTask(id= doc._id)
+              .row.addNewTask
+                .col-md-10
+                  label(for='taskName') Add new task
+                  input.form-control(name='name' type='text' placeholder='Task name' id='taskName_' + doc._id)
+                .col-md-2
+                  button.newTaskBtn.btn-block.btn.btn-primary(id='addTask_' + doc._id value= doc._id) Add
+            .tasks
+              each task in tasks
+                - if (doc._id == task.projectID)
+                  .row.task(id= task._id)
+                    .col-md-1
+                      label.custom-control.custom-checkbox.mb-2.mr-sm-2.mb-sm-0
+                        - if (task.status == 'checked')
+                          input.custom-control-input(checked type='checkbox' name='name' id='checkbox_' + task._id )
+                        -else
+                          input.custom-control-input( type='checkbox' name='name' id='checkbox_' + task._id )
+                        span.custom-control-indicator
+                    .col-md-8                
+                      p(id='p_' + task._id)=task.name
+                    .col-md-3                 
+                      .taskButtons(id='taskBtn_'+task._id)
+                        .btn-group
+                          button.btn.btn-warning.priorityTask(value= task._id) Priority
+                          button.btn.btn-warning.editTask(value= task._id) Edit
+                          button.btn.btn-warning.deleteTask(value= task._id) Del
+                      .taskSave(style="display: none" id='task_save_' + task._id)
+                          button.btn-block.btn.btn-warning.saveTask(value= task._id) Save
+
+
+
+      hr.my-4
+      .AddForm
+        form#addProject
+          .row.form-group
+            .col-md-10
+              label(for='projectName') Project Name
+              input#projectName.form-control(name='name' type='text')
+            .col-md-2
+              button#addBtn.btn-block.btn.btn-primary Add
+
+
+    script(src='./javascripts/index.js')

@@ -178,12 +178,13 @@ app.get('/*', function(req, res){
 //===========================================
 // Conecting
 //===========================================
-MongoClient.connect(process.env.MONGODB_URI, function(err, db){
+MongoClient.connect(process.env.MONGODB_URI, function(err, database){
   if (err) {
      console.log(err);
      return res.sendStatus(500);
      }
-  var port_number = app.listen(process.env.PORT || 3000);
+  db = database;
+  app.listen(process.env.PORT || 3000);
 
  // app.listen(port_number);
 //   var server = app.listen(config.get('port'), function(){

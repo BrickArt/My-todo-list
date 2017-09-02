@@ -170,11 +170,12 @@ img{
 	.projectButtons{
 		padding-top: 15px;
     		margin-top: 10px;
-    		border-top: solid 1px #ecf0f1;
+    		border-top: solid 1px;
+		border-color: 255 255 255 0.3
 		margin-left: 0;
 	}
 	.task>div>p{
 		margin-left: 40px;
-		margin-top: 31px;
+		margin-top: -31px;
 	}
 }

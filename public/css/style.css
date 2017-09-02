@@ -147,3 +147,32 @@ img{
 .taskSave{
   margin-top: -8px;
 }
+
+@media screen and (max-width:991px){
+	.taskButtons{
+		margin-left: -29px;
+	}
+	.task>p{
+		margin-right: 9px;
+	}
+	.projectButtons{
+		margin-left: -32px;
+	}
+}
+
+
+@media screen and (max-width:767px){
+	.taskButtons{
+		float: right;
+		padding-bottom: 15px;
+		margin-left: -10px;
+	}
+	.projectButtons{
+		margin-right: -20px;
+		float: right;
+	}
+	.task>p{
+		margin-left: 40px;
+		margin-top: 31px;
+	}
+}
